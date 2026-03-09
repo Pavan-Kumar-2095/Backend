@@ -51,33 +51,7 @@ app.get('/',(req , res) =>{
     res.json({"connection" : true})
 })
 
-// ********************************************************************************************************************************** unwanted , not related to project
-app.get('/users',async(req , res) =>{
-    await mongoose.connect(uri)
-    console.log("server running on /users")  
-    let length = await News.countDocuments()
-    let newss = await News.find({})
-    console.log(newss,length)
-    let newnews = newss.reverse()
-    res.status(200).json(newss)
-})
 
-
-app.get('/users/:id',async(req , res) =>{
-    await mongoose.connect(uri)
-    console.log("server running on /news/:id",port)
-    console.log(req.params.id)
-    console.log(req.url,req.params)
-    let input = req.params.id
-    let newss = await News.find({_id:input})
-    console.log(newss)
-    if(!!newss){
-        res.status(200).json(newss)
-        console.log('completed')
-    }
-
-})
-// **********************************************************************************************************************************unwanted , not related to project
 app.get('/news',async(req , res) =>{
     await mongoose.connect(uri)
     console.log("server running on /news")  
