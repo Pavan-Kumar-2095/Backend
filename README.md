@@ -1,4 +1,4 @@
-# 🌍 Global Insight - Backend
+# Global Insight - Backend
 
 REST API for the Global Insight news application built with Node.js, Express.js, MongoDB, JWT Authentication, Google OAuth, and Cloudinary.
 
