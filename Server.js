@@ -35,13 +35,17 @@ cloudinary.config({
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+const cors = require('cors');
+
 const allowedOrigins = [
   'https://frontend-w71v.vercel.app',
 ];
 
 app.use(cors({
   origin: allowedOrigins,
+  credentials: true
 }));
+
 
 app.listen(port , () =>{
     console.log(`example app listening at http://localhost:${port}`)
