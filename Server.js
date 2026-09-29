@@ -23,15 +23,16 @@ const upload = multer({ storage: storage }).single('file');
 
 app.use(express.json())   
 
-let uri = `mongodb+srv://developer0exe:321321@insights.c5adzzl.mongodb.net/`
+let uri = process.env.MONGODB_URI;
 mongoose.connect(uri)
 
 
 const cloudinary = require('cloudinary').v2;
-cloudinary.config({ 
-    cloud_name: 'drxhp8vhx', 
-    api_key: '341522599126842', 
-    api_secret: '-1LqPTfukFg0WnRQFnWAfufLiYQ' // Click 'View API Keys' above to copy your API secret
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 const allowedOrigins = [
