@@ -8,6 +8,14 @@ const port = process.env.PORT || 8000
 const API_KEY = process.env.API_KEY
 const fs = require('fs'); 
 
+const allowedOrigins = [
+  'https://frontend-w71v.vercel.app',
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true
+}));
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -34,17 +42,6 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
-
-const cors = require('cors');
-
-const allowedOrigins = [
-  'https://frontend-w71v.vercel.app',
-];
-
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
-}));
 
 
 app.listen(port , () =>{
